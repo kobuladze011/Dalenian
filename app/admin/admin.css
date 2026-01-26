@@ -1,0 +1,42 @@
+.admin-root {
+  background: #111214;
+  color: #f1f1f1;
+  min-height: 100vh;
+}
+
+.admin-root .card {
+  background: #1b1c1f;
+  border-color: #2a2b2f;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.admin-root .pill {
+  background: #232428;
+  color: #c9c9c9;
+  border-color: #2a2b2f;
+}
+
+.admin-root .button {
+  background: #f1f1f1;
+  color: #111214;
+  border-color: #111214;
+}
+
+.admin-root .button.secondary {
+  background: transparent;
+  color: #f1f1f1;
+  border-color: #2a2b2f;
+}
+
+.admin-root .input,
+.admin-root .select,
+.admin-root .textarea {
+  background: #141518;
+  border-color: #2a2b2f;
+  color: #f1f1f1;
+}
+
+.admin-root a {
+  color: #d6d6d6;
+}
+
