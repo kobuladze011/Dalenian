@@ -1,4 +1,10 @@
+"use client";
+
+import { useI18n } from "@/lib/i18n";
+
 export default function Footer() {
+  const { t } = useI18n();
+
   return (
     <footer
       style={{
@@ -20,11 +26,11 @@ export default function Footer() {
         <div>
           <strong>Dalenian</strong>
           <p style={{ margin: "6px 0 0", color: "#7b6f67" }}>
-            Handmade clay lighter cases with a premium peach glow.
+            {t.footer.tagline}
           </p>
         </div>
         <div style={{ color: "#7b6f67", fontSize: 13 }}>
-          © {new Date().getFullYear()} Dalenian. All rights reserved.
+          © {new Date().getFullYear()} Dalenian. {t.footer.copyright}
         </div>
       </div>
     </footer>

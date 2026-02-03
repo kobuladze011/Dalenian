@@ -1,0 +1,204 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  background: rgba(255, 244, 241, 0.9);
+  border-bottom: 1px solid #f6d9d0;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  position: relative;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  z-index: 101;
+  position: relative;
+}
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  align-items: center;
+}
+
+.burgerButton {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: relative;
+  z-index: 101;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.burgerLine {
+  width: 24px;
+  height: 2.5px;
+  background: var(--ink-900);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: block;
+  transform-origin: center;
+}
+
+.mobileLangSwitcher {
+  display: none;
+}
+
+.desktopLangSwitcher {
+  display: block;
+}
+
+/* Desktop: nav visible, burger hidden */
+@media (min-width: 769px) {
+  .nav {
+    display: flex;
+  }
+  
+  .burgerButton {
+    display: none;
+  }
+}
+
+/* Mobile: burger visible, nav hidden by default */
+@media (max-width: 768px) {
+  .burgerButton {
+    display: flex;
+  }
+
+  .desktopLangSwitcher {
+    display: none;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 244, 241, 0.98);
+    backdrop-filter: blur(20px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease, visibility 0.3s ease;
+    z-index: 99;
+    visibility: hidden;
+    pointer-events: none;
+    padding: 0;
+  }
+
+  .navOpen {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .navContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 24px 24px 24px;
+    gap: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .navLink {
+    display: block;
+    width: auto;
+    padding: 16px 0;
+    font-size: 18px;
+    color: var(--ink-900);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .navLink:hover {
+    color: var(--pink-500);
+  }
+
+  .navDivider {
+    width: 100%;
+    height: 1px;
+    background: rgba(42, 36, 31, 0.15);
+    margin: 0;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 102;
+    padding: 0;
+  }
+
+  .closeLine {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--ink-900);
+    border-radius: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .closeLine:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .closeLine:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+
+  .closeButton:hover .closeLine {
+    background: var(--pink-500);
+  }
+
+  .mobileLangSwitcher {
+    display: block;
+    margin-top: 24px;
+    width: auto;
+  }
+
+  .burgerOpen .burgerLine:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .burgerOpen .burgerLine:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .burgerOpen .burgerLine:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
