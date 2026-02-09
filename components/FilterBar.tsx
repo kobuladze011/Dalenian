@@ -46,7 +46,8 @@ export default function FilterBar() {
         >
           <option value="">All</option>
           <option value="Clay">Clay</option>
-          <option value="Clay + Glaze">Clay + Glaze</option>
+          <option value="Glaze">Glaze</option>
+          <option value="Satin">Satin</option>
         </select>
       </div>
       <div>
@@ -59,7 +60,7 @@ export default function FilterBar() {
           <option value="">All</option>
           <option value="Peach">Peach</option>
           <option value="Rose">Rose</option>
-          <option value="Sand">Sand</option>
+          <option value="Apricot">Apricot</option>
         </select>
       </div>
       <div>

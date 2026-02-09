@@ -106,8 +106,9 @@ export async function listProducts(filters: {
   const values: Array<string | number> = [];
 
   if (filters.material) {
-    where.push("material = ?");
-    values.push(filters.material);
+    // Use LIKE for flexible material matching (e.g., "Clay" matches "Handmade Clay", "Glazed Clay")
+    where.push("material LIKE ?");
+    values.push(`%${filters.material}%`);
   }
   if (filters.color) {
     where.push("color = ?");
@@ -137,9 +138,43 @@ export async function listProducts(filters: {
 
   try {
     const rows = await query<Product[]>(sql, values);
-    return rows.length ? rows : mockProducts;
+    if (rows.length > 0) {
+      return rows;
+    }
   } catch {
-    return mockProducts;
+    // Fall through to apply filters to mockProducts
   }
+
+  // Apply filters to mockProducts if database query fails or returns no results
+  let filtered = [...mockProducts];
+
+  if (filters.material) {
+    filtered = filtered.filter((product) =>
+      product.material.toLowerCase().includes(filters.material!.toLowerCase())
+    );
+  }
+  if (filters.color) {
+    filtered = filtered.filter((product) => product.color === filters.color);
+  }
+  if (filters.minPrice !== undefined) {
+    filtered = filtered.filter((product) => product.price >= filters.minPrice!);
+  }
+  if (filters.maxPrice !== undefined) {
+    filtered = filtered.filter((product) => product.price <= filters.maxPrice!);
+  }
+
+  // Apply sorting
+  if (filters.sort === "price-asc") {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (filters.sort === "price-desc") {
+    filtered.sort((a, b) => b.price - a.price);
+  } else {
+    filtered.sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
+  }
+
+  return filtered;
 }
 

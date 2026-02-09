@@ -109,6 +109,7 @@ img {
 .grid {
   display: grid;
   gap: 24px;
+  justify-items: start;
 }
 
 .grid-2 {
@@ -116,7 +117,7 @@ img {
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .grid-4 {

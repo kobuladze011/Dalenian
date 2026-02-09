@@ -28,7 +28,10 @@ export const translations = {
       ctaDescription:
         "Explore limited runs, custom finishes, and soft‑tone palettes.",
       shopNow: "Shop now",
-      startCheckout: "Start checkout"
+      startCheckout: "Start checkout",
+      counter1Label: "Satisfied clients",
+      counter2Label: "Different orders",
+      counter3Label: "Different clay accessories"
     },
     shop: {
       title: "Shop",
@@ -80,7 +83,10 @@ export const translations = {
       ctaDescription:
         "გამოიკვლიეთ შეზღუდული სერიები, მორგებული დასრულებები და რბილი ტონის პალიტრები.",
       shopNow: "იყიდე ახლა",
-      startCheckout: "დაიწყე შეკვეთა"
+      startCheckout: "დაიწყე შეკვეთა",
+      counter1Label: "კმაყოფილი კლიენტი",
+      counter2Label: "სხვადასხვა შეკვეთა",
+      counter3Label: "სხვადასხვა თიხის აქსესუარი"
     },
     shop: {
       title: "მაღაზია",

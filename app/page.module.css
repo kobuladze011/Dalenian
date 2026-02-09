@@ -11,6 +11,26 @@
   );
 }
 
+.countersCard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 48px 32px;
+  background: linear-gradient(
+    135deg,
+    rgba(253, 227, 234, 0.92),
+    rgba(255, 255, 255, 0.98)
+  );
+}
+
+@media (max-width: 768px) {
+  .countersCard {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 24px;
+  }
+}
+
 .heroTitle {
   font-size: 46px;
   margin: 18px 0 12px;

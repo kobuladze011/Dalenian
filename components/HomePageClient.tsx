@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { useI18n } from "@/lib/i18n";
 import { type Product } from "@/lib/products";
 import styles from "../app/page.module.css";
@@ -31,6 +32,25 @@ export default function HomePageClient({
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className={`${styles.countersCard} card`}>
+            <AnimatedCounter
+              end={130}
+              label={t.home.counter1Label}
+            />
+            <AnimatedCounter
+              end={150}
+              label={t.home.counter2Label}
+            />
+            <AnimatedCounter
+              end={4}
+              label={t.home.counter3Label}
+            />
           </div>
         </div>
       </section>

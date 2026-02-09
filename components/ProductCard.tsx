@@ -20,7 +20,7 @@ export default function ProductCard({
     <Link href={`/product/${slug}`} className="card">
       <div
         style={{
-          height: 180,
+          height: 198,
           borderRadius: 18,
           background: "#ffe6df",
           display: "grid",
